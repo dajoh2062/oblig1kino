@@ -2,18 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kino</title>
+    <script src="script.js"></script>
 </head>
 <body>
-    <h1>Bestilling av kinobiletter</h1>
+<h1>Bestilling av kinobiletter</h1>
 
-    <select id="VelgFilm">
-        <option disabled selected>Velg Film</option>
-        <option>Shawshank redemption</option>
-        <option>Drive</option>
-        <option>The Silence of the Lambs</option>
-    </select>
-    <label for="name">Navn:</label>
-    <input type="text" id="name" required>
+<select id="velgFilm">
+    <option disabled selected>Velg Film</option>
+    <option>Shawshank redemption</option>
+    <option>Drive</option>
+    <option>The Silence of the Lambs</option>
+</select>
+<br><br>
+
+<label for="fornavn">Fornavn:</label>
+<input type="text" id="fornavn" required>
+<br><br>
+
+<label for="etternavn">Etternavn:</label>
+<input type="text" id="etternavn" required>
+<br><br>
+
+<label for="telefon">Telefonnummer:</label>
+<input type="text" id="telefon" required>
+<br><br>
+
+<label for="email">Email:</label>
+<input type="text" id="email" required>
+<br><br>
+
+<button onclick="kjopbilett()">Kjøp billett</button>
+
+<!-- Display all tickets -->
+<h2>Alle billetter</h2>
+<ul id="biletter"></ul>
+
+<button onclick="slettBiletter()">Slett alle billettene</button>
+
 </body>
 </html>
