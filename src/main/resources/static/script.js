@@ -1,4 +1,7 @@
+
+
 let biletter = [];
+
 function kjopbilett() {
     const film = document.getElementById("velgFilm").value;
     const fornavn = document.getElementById("fornavn").value;
@@ -22,7 +25,7 @@ function visbiletter() {
     const billetListe = document.getElementById('biletter');
     billetListe.innerHTML = "";
 
-    for (let indeks = 0; indeks < tickets.length; indeks++) {
+    for (let indeks = 0; indeks < biletter.length; indeks++) {
         const bilett = biletter[indeks];
 
         const li = document.createElement('li');
@@ -34,11 +37,12 @@ function visbiletter() {
 
 }
 function tomfelter() {
-    document.getElementById("velgFilm").value;
-    document.getElementById("fornavn").value;
-    document.getElementById("etternavn").value;
-    document.getElementById("telefon").value;
-    document.getElementById("email").value;
+    document.getElementById("velgFilm").value = "";
+    document.getElementById("fornavn").value = "";
+    document.getElementById("etternavn").value = "";
+    document.getElementById("telefon").value = "";
+    document.getElementById("email").value = "";
+
 }
 
 function slettBiletter() {
