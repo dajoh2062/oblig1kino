@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kino</title>
+    <!-- Linker til js fil i samme mappe-->
     <script src="script.js"></script>
 
 </head>
 <body>
 <h1>Bestilling av kinobiletter</h1>
+<!-- lager film drop down -->
 <label for="velgFilm"><b>Velg Film:</b></label>
 <select id="velgFilm">
     <option disabled selected>Velg Film</option>
@@ -19,13 +21,15 @@
 <br><br>
 
 <div>
+    <!-- antall biletter, 1 eller større -->
     <label for="antall"><b>Antall:</b></label>
-    <input type="number" id="antall" min="1" pattern="[0-9]+" required>
+    <input type="number" id="antall" min="1" required>
 
 </div>
 <br>
 
 <div>
+    <!-- Fornavn input med responsiv validering -->
     <label for="fornavn"><b>Fornavn:</b></label>
     <input type="text" id="fornavn" onchange="fornavnError()" required>
     <span id="fornavnError" class="error-message"></span>
@@ -33,6 +37,7 @@
 <br>
 
 <div>
+    <!-- etternavn input med responsiv validering -->
     <label for="etternavn"><b>Etternavn:</b></label>
     <input type="text" id="etternavn"  onchange="etternavnError()" required>
     <span id="etternavnError" class="error"></span>
@@ -40,6 +45,7 @@
 <br>
 
 <div>
+    <!-- telefon input med responsiv validering -->
     <label for="telefon"><b>Telefonnummer:</b></label>
     <input type="text" id="telefon" onchange="telefonError()" required>
     <span id="telefonError" class="error-message"></span>
@@ -47,18 +53,20 @@
 <br>
 
 <div>
+    <!-- email input med responsiv validering -->
     <label for="email"><b>Email:</b></label>
     <input type="text" id="email" onchange="emailError()" required>
     <span id="emailError" class="error-message"></span>
 </div>
 <br>
-
+<!-- caller javascript funksjonen "kjopbilett" -->
 <button onclick="kjopbilett()">Kjøp billett</button>
 
-
+<!-- liste med nåværende biletter-->
 <h2>Alle billetter</h2>
 <ul id="biletter"></ul>
 
+<!-- slette bilettene i listen ovenfor-->
 <button onclick="slettBiletter()">Slett alle billettene</button>
 
 </body>

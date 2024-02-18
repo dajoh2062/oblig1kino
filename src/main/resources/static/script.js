@@ -1,6 +1,9 @@
+<!-- liste med biletter -->
 let biletter = [];
 
 
+<!-- funksjon som legger til kjøpte biletter i listen, hare hvis alle felter er fylt ut og følger
+riktig mønster. Samtidig tømmes felter og feilmeldinger -->
 function kjopbilett() {
     const film = document.getElementById("velgFilm").value;
     const fornavn = document.getElementById("fornavn").value;
