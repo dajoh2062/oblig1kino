@@ -1,24 +1,24 @@
-<!-- liste med biletter -->
+// liste med biletter //
 let biletter = [];
 
-
-<!-- funksjon som legger til kjøpte biletter i listen, hare hvis alle felter er fylt ut og følger
-riktig mønster. Samtidig tømmes felter og feilmeldinger -->
+/*funksjon som legger bilettene som objekter i et array, skjekker om alle feltene er fylt, og om de er riktig
+* tømmer ogsa error beskjeder og feltene hvis det stemmer, og viser bilettene neders i liste*/
 function kjopbilett() {
     const film = document.getElementById("velgFilm").value;
     const fornavn = document.getElementById("fornavn").value;
     const etternavn = document.getElementById("etternavn").value;
     const telefon = document.getElementById("telefon").value;
     const email = document.getElementById("email").value;
+    const antall = document.getElementById("antall").value;
 
-    if (!film || !fornavn || !etternavn || !telefon || !email) {
+    if (!film || !fornavn || !etternavn || !telefon || !email || !antall) {
         alert("Vennligst fyll ut alle feltene");
         return;
     }
 
-
-    if (fornavnErFeil===false && etternavnErFeil===false && telefonErFeil===false && emailErFeil===false){
-        const bilett = { film, fornavn, etternavn, telefon, email };
+//skjekker etter error//
+    if (fornavnErFeil===false && etternavnErFeil===false && telefonErFeil===false && emailErFeil===false && antallErFeil===false){
+        const bilett = { film, fornavn, etternavn, telefon, email, antall };
 
         biletter.push(bilett);
         visbiletter();
@@ -27,7 +27,7 @@ function kjopbilett() {
 
 
 }
-
+//viser bilettene i en uordnet liste //
 function visbiletter() {
     const billetListe = document.getElementById("biletter");
     billetListe.innerHTML = "";
@@ -49,12 +49,12 @@ function visbiletter() {
             bilett.email +
             ", +47 " +
             bilett.telefon +
-            ")"
+            ") antall: " +bilett.antall
             ;
         billetListe.appendChild(li);
     }
 }
-
+//Funksjon som gjoer strengene tomme//
 function tomfelter() {
     document.getElementById("antall").value = "";
     document.getElementById("velgFilm").value = "";
@@ -63,20 +63,23 @@ function tomfelter() {
     document.getElementById("telefon").value = "";
     document.getElementById("email").value = "";
 }
-
+//tømmer arrayet for biletter//
 function slettBiletter() {
     biletter = [];
     visbiletter();
 }
-
+//fjerner errorbeskjeder når infoen er rikitg//
 function fjernError() {
     document.getElementById("fornavnError").textContent = "";
     document.getElementById("etternavnError").textContent = "";
     document.getElementById("telefonError").textContent = "";
-    document.getElementById("emailError").textContent = "";}
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("antallError").textContent = "";}
 
 
 
+/*nedenfor er funkjsoner som skjekker om hvertinputfelt har riktig format fyllt in. Vet ikke om dette er
+* den enkleste måten å gjøre det på men ja */
 let fornavnErFeil=false;
 function fornavnError () {
     const fornavn = document.getElementById("fornavn").value;
@@ -136,5 +139,21 @@ function emailError(){
         document.getElementById("emailError").textContent="";
         emailErFeil = false;
 
+    }
+
+
+}
+let antallErFeil = false;
+function antallError(){
+    const antall = document.getElementById("antall").value;
+    if (antall>0 || antall<=15) {
+        document.getElementById("antallError").textContent="";
+        antallErFeil = false;
+
+    }
+    else {
+
+        document.getElementById("antallError").textContent = "Skriv antall biletter mellom 1 og 15";
+        antallErFeil = true;
     }
 }

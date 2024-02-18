@@ -11,6 +11,7 @@
 <body>
 <h1>Bestilling av kinobiletter</h1>
 <!-- lager film drop down -->
+<form>
 <label for="velgFilm"><b>Velg Film:</b></label>
 <select id="velgFilm">
     <option disabled selected>Velg Film</option>
@@ -23,8 +24,8 @@
 <div>
     <!-- antall biletter, 1 eller større -->
     <label for="antall"><b>Antall:</b></label>
-    <input type="number" id="antall" min="1" onchange="antallError()" required>
-
+    <input type="number" id="antall" min="1" max="15" onchange="antallError()" required>
+    <span id="antallError"></span>
 </div>
 <br>
 
@@ -32,7 +33,7 @@
     <!-- Fornavn input med responsiv validering -->
     <label for="fornavn"><b>Fornavn:</b></label>
     <input type="text" id="fornavn" onchange="fornavnError()" required>
-    <span id="fornavnError" class="error-message"></span>
+    <span id="fornavnError" ></span>
 </div>
 <br>
 
@@ -40,7 +41,7 @@
     <!-- etternavn input med responsiv validering -->
     <label for="etternavn"><b>Etternavn:</b></label>
     <input type="text" id="etternavn"  onchange="etternavnError()" required>
-    <span id="etternavnError" class="error"></span>
+    <span id="etternavnError" ></span>
 </div>
 <br>
 
@@ -48,7 +49,7 @@
     <!-- telefon input med responsiv validering -->
     <label for="telefon"><b>Telefonnummer:</b></label>
     <input type="text" id="telefon" onchange="telefonError()" required>
-    <span id="telefonError" class="error-message"></span>
+    <span id="telefonError" ></span>
 </div>
 <br>
 
@@ -56,9 +57,10 @@
     <!-- email input med responsiv validering -->
     <label for="email"><b>Email:</b></label>
     <input type="text" id="email" onchange="emailError()" required>
-    <span id="emailError" class="error-message"></span>
+    <span id="emailError" ></span>
 </div>
 <br>
+</form>
 <!-- caller javascript funksjonen "kjopbilett" -->
 <button onclick="kjopbilett()">Kjøp billett</button>
 
