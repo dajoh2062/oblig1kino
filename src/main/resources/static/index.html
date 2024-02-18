@@ -28,32 +28,34 @@
 <div>
     <label for="fornavn"><b>Fornavn:</b></label>
     <input type="text" id="fornavn" required>
-
+    <span id="fornavnError" class="error-message"></span>
 </div>
 <br>
 
 <div>
     <label for="etternavn"><b>Etternavn:</b></label>
     <input type="text" id="etternavn"  required>
-
+    <span id="etternavnError" class="error"></span>
 </div>
 <br>
 
 <div>
     <label for="telefon"><b>Telefonnummer:</b></label>
     <input type="text" id="telefon" required>
+    <span id="telefonError" class="error-message"></span>
 </div>
 <br>
 
 <div>
     <label for="email"><b>Email:</b></label>
     <input type="text" id="email"  required>
+    <span id="emailError" class="error-message"></span>
 </div>
 <br>
 
 <button onclick="kjopbilett()">Kjøp billett</button>
 
-<!-- Display all tickets -->
+
 <h2>Alle billetter</h2>
 <ul id="biletter"></ul>
 

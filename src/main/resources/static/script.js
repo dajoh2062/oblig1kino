@@ -14,7 +14,25 @@ function kjopbilett() {
     }
     const patternFornavn = /^[A-Za-z]+$/;
     if (!patternFornavn.test(fornavn)) {
-        alert("Fornavnet er ikke gyldig");
+        document.getElementById("fornavnError").textContent="Fornavnet er ikke gyldig";
+        return;
+    }
+
+    const patternEtternavn = /^[A-Za-z]+$/;
+    if (!patternEtternavn.test(etternavn)) {
+        document.getElementById("etternavnError").textContent="Etternavnet er ikke gyldig";
+        return;
+    }
+
+    const patternTelefon = /^\d{8}$/;
+    if (!patternTelefon.test(telefon)) {
+        document.getElementById("telefonError").textContent="Nummeret er ikke gyldig";
+        return;
+    }
+
+    const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+[a-zA-Z.]$/;
+    if (!patternEmail.test(email)) {
+        document.getElementById("emailError").textContent="Eposten er ikke gyldig";
         return;
     }
 
@@ -23,6 +41,8 @@ function kjopbilett() {
     biletter.push(bilett);
     visbiletter();
     tomfelter();
+    fjernError();
+
 }
 
 function visbiletter() {
@@ -64,3 +84,11 @@ function slettBiletter() {
     biletter = [];
     visbiletter();
 }
+
+function fjernError() {
+    document.getElementById("fornavnError").textContent = "";
+    document.getElementById("etternavnError").textContent = "";
+    document.getElementById("telefonError").textContent = "";
+    document.getElementById("emailError").textContent = "";}
+
+
