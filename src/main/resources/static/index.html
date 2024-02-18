@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Bestilling av kinobiletter</h1>
-
+<label for="velgFilm">Velg Film:</label>
 <select id="velgFilm">
     <option disabled selected>Velg Film</option>
     <option>Shawshank redemption</option>
@@ -17,20 +17,34 @@
 </select>
 <br><br>
 
-<label for="fornavn">Fornavn:</label>
-<input type="text" id="fornavn" required>
-<br><br>
+<div>
+    <label for="antall">Antall:</label>
+    <input type="number" id="antall" min="1" pattern="[0-9]+" required>
+</div>
+<br>
 
-<label for="etternavn">Etternavn:</label>
-<input type="text" id="etternavn" required>
-<br><br>
+<div>
+    <label for="fornavn">Fornavn:</label>
+    <input type="text" id="fornavn" required>
+</div>
+<br>
 
-<label for="telefon">Telefonnummer:</label>
-<input type="text" id="telefon" required>
-<br><br>
+<div>
+    <label for="etternavn">Etternavn:</label>
+    <input type="text" id="etternavn" required>
+</div>
+<br>
 
-<label for="email">Email:</label>
-<input type="text" id="email" required>
+<div>
+    <label for="telefon">Telefonnummer:</label>
+    <input type="text" id="telefon" required>
+</div>
+<br>
+
+<div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" required>
+</div>
 <br><br>
 
 <button onclick="kjopbilett()">Kjøp billett</button>
