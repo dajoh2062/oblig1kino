@@ -49,3 +49,14 @@ function slettBiletter() {
     biletter = [];
     visbiletter();
 }
+function validateInput(input) {
+    const errorSpan = input.nextElementSibling; // Assuming the error span follows the input
+    const isValid = input.checkValidity();
+
+    if (!isValid) {
+        input.setCustomValidity(input.title);
+    } else {
+        input.setCustomValidity("");
+        errorSpan.textContent = "Wrong";
+    }
+}
