@@ -12,36 +12,16 @@ function kjopbilett() {
         alert("Vennligst fyll ut alle feltene");
         return;
     }
-    const patternFornavn = /^[A-Za-z]+$/;
-    if (!patternFornavn.test(fornavn)) {
-        document.getElementById("fornavnError").textContent="Fornavnet er ikke gyldig";
-        return;
-    }
 
-    const patternEtternavn = /^[A-Za-z]+$/;
-    if (!patternEtternavn.test(etternavn)) {
-        document.getElementById("etternavnError").textContent="Etternavnet er ikke gyldig";
-        return;
-    }
 
-    const patternTelefon = /^\d{8}$/;
-    if (!patternTelefon.test(telefon)) {
-        document.getElementById("telefonError").textContent="Nummeret er ikke gyldig";
-        return;
-    }
+    if (fornavnErFeil===false && etternavnErFeil===false && telefonErFeil===false && emailErFeil===false){
+        const bilett = { film, fornavn, etternavn, telefon, email };
 
-    const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+[a-zA-Z.]$/;
-    if (!patternEmail.test(email)) {
-        document.getElementById("emailError").textContent="Eposten er ikke gyldig";
-        return;
-    }
+        biletter.push(bilett);
+        visbiletter();
+        tomfelter();
+        fjernError();}
 
-    const bilett = { film, fornavn, etternavn, telefon, email };
-
-    biletter.push(bilett);
-    visbiletter();
-    tomfelter();
-    fjernError();
 
 }
 
@@ -66,7 +46,8 @@ function visbiletter() {
             bilett.email +
             ", +47 " +
             bilett.telefon +
-            ")";
+            ")"
+            ;
         billetListe.appendChild(li);
     }
 }
@@ -92,3 +73,65 @@ function fjernError() {
     document.getElementById("emailError").textContent = "";}
 
 
+
+let fornavnErFeil=false;
+function fornavnError () {
+    const fornavn = document.getElementById("fornavn").value;
+    const patternFornavn = /^[A-Za-z]+$/;
+    if (!patternFornavn.test(fornavn)) {
+        document.getElementById("fornavnError").textContent = "Fornavnet er ikke gyldig";
+        fornavnErFeil=true;
+
+
+    }
+    else if (patternFornavn.test(fornavn)){
+        document.getElementById("fornavnError").textContent = "";
+        fornavnErFeil=false;
+
+    }
+
+}
+let etternavnErFeil = false;
+function etternavnError() {
+    const etternavn = document.getElementById("etternavn").value;
+    const patternEtternavn = /^[A-Za-z]+$/;
+    if (!patternEtternavn.test(etternavn)) {
+        document.getElementById("etternavnError").textContent = "Etternavnet er ikke gyldig";
+        etternavnErFeil=true;
+    } else if (patternEtternavn.test(etternavn)) {
+        document.getElementById("etternavnError").textContent = "";
+        etternavnErFeil=false;
+
+    }
+}
+let telefonErFeil = false;
+function telefonError(){
+    const telefon = document.getElementById("telefon").value;
+    const patternTelefon = /^\d{8}$/;
+    if (!patternTelefon.test(telefon)) {
+        document.getElementById("telefonError").textContent="Nummeret er ikke gyldig";
+        telefonErFeil = true;
+
+
+    }
+    else if (patternTelefon.test(telefon)) {
+        document.getElementById("telefonError").textContent = "";
+        telefonErFeil = false;
+
+}
+}
+ let emailErFeil = false;
+function emailError(){
+    const email = document.getElementById("email").value;
+    const patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+[a-zA-Z.]$/;
+    if (!patternEmail.test(email)) {
+        document.getElementById("emailError").textContent="Eposten er ikke gyldig";
+        emailErFeil = true;
+
+    }
+    else if (patternEmail.test(email)){
+        document.getElementById("emailError").textContent="";
+        emailErFeil = false;
+
+    }
+}

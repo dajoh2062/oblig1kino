@@ -27,28 +27,28 @@
 
 <div>
     <label for="fornavn"><b>Fornavn:</b></label>
-    <input type="text" id="fornavn" required>
+    <input type="text" id="fornavn" onchange="fornavnError()" required>
     <span id="fornavnError" class="error-message"></span>
 </div>
 <br>
 
 <div>
     <label for="etternavn"><b>Etternavn:</b></label>
-    <input type="text" id="etternavn"  required>
+    <input type="text" id="etternavn"  onchange="etternavnError()" required>
     <span id="etternavnError" class="error"></span>
 </div>
 <br>
 
 <div>
     <label for="telefon"><b>Telefonnummer:</b></label>
-    <input type="text" id="telefon" required>
+    <input type="text" id="telefon" onchange="telefonError()" required>
     <span id="telefonError" class="error-message"></span>
 </div>
 <br>
 
 <div>
     <label for="email"><b>Email:</b></label>
-    <input type="text" id="email"  required>
+    <input type="text" id="email" onchange="emailError()" required>
     <span id="emailError" class="error-message"></span>
 </div>
 <br>
