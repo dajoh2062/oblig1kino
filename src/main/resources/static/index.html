@@ -21,32 +21,35 @@
 <div>
     <label for="antall"><b>Antall:</b></label>
     <input type="number" id="antall" min="1" pattern="[0-9]+" required>
+
 </div>
 <br>
 
 <div>
     <label for="fornavn"><b>Fornavn:</b></label>
-    <input type="text" id="fornavn" pattern="[A-Za-zÆØÅæøå]" required>
+    <input type="text" id="fornavn" required>
+
 </div>
 <br>
 
 <div>
     <label for="etternavn"><b>Etternavn:</b></label>
-    <input type="text" id="etternavn" pattern="[A-Za-zÆØÅæøå]" required>
+    <input type="text" id="etternavn"  required>
+
 </div>
 <br>
 
 <div>
     <label for="telefon"><b>Telefonnummer:</b></label>
-    <input type="text" id="telefon" pattern="\d{8}" oninput="validateInput(this)" required>
+    <input type="text" id="telefon" required>
 </div>
 <br>
 
 <div>
     <label for="email"><b>Email:</b></label>
-    <input type="text" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+    <input type="text" id="email"  required>
 </div>
-<br><br>
+<br>
 
 <button onclick="kjopbilett()">Kjøp billett</button>
 
