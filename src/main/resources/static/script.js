@@ -147,6 +147,7 @@ let antallErFeil = false;
 function antallError(){
     const antall = document.getElementById("antall").value;
     if (antall>0 || antall<=15) {
+
         document.getElementById("antallError").textContent="";
         antallErFeil = false;
 
@@ -157,3 +158,5 @@ function antallError(){
         antallErFeil = true;
     }
 }
+
+
